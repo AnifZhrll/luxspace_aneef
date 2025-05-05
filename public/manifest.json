@@ -1,10 +1,11 @@
 {
+  "id": "/",
   "short_name": "LuxSpace",
   "name": "LuxSpace App",
   "icons": [
     {
       "src": "/images/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
@@ -46,5 +47,18 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#F9CADA",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "screenshots": [
+    {
+      "src": "/images/desktop_screenshot.png",
+      "sizes": "1152x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/images/mobile_screenshot.png",
+      "sizes": "370x801",
+      "type": "image/png"
+    }
+  ]
 }

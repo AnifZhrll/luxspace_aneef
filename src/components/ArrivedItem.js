@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 function numberFormat(price) {
-    const currency = Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-        minimumFractionDigits: 0,
-    });
-    return currency.format(price);
+  const currency = Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  });
+  return currency.format(price);
 }
 
 function ArrivedItem({ item }) {
@@ -37,9 +39,7 @@ function ArrivedItem({ item }) {
       </div>
       <h5 className="text-lg font-semibold mt-4">{item.name}</h5>
       <span className="">{numberFormat(item.price)}</span>
-      <a href="/details" className="stretched-link">
-        {/* fake children */}
-      </a>
+      <Link to={`/details/${item.id}`} className="stretched-link"></Link>
     </div>
   );
 }
