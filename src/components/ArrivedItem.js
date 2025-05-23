@@ -9,7 +9,7 @@ function numberFormat(price) {
   return currency.format(price);
 }
 
-function ArrivedItem({ item }) {
+function ArrivedItem({ item , onLoad }) {
   return (
     <div className="px-4 relative card group">
       <div
@@ -35,6 +35,7 @@ function ArrivedItem({ item }) {
           src={item.image1}
           alt=""
           className="w-full h-full object-cover object-center"
+          onLoad={onLoad}
         />
       </div>
       <h5 className="text-lg font-semibold mt-4">{item.name}</h5>

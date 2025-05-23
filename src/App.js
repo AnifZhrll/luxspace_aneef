@@ -15,6 +15,8 @@ import Cart from "./pages/Cart";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
+
+
 function App({ cart }) {
   const [items, setItems] = React.useState([]);
   const [offlineStatus, setOfflineStatus] = React.useState(!navigator.onLine);
@@ -36,17 +38,22 @@ function App({ cart }) {
         const { nodes } = await response.json();
         setItems(nodes);
 
-        if (!document.querySelector('script[src="/carousel.js"]')) {
+        // if (!document.querySelector('script[src="/carousel.js"]')) {
 
-          const script = document.createElement("script");
+        //   const script = document.createElement("script");
 
-          script.src = "/carousel.js";
+        //   script.src = "/carousel.js";
 
-          script.async = false;
+        //   script.async = true;
 
-          document.body.appendChild(script);
+        //   document.body.appendChild(script);
 
-        }
+        // }
+
+        setTimeout(function () {
+          setIsLoading(false);
+        }, 1500);
+
         
       })();
 
@@ -54,9 +61,9 @@ function App({ cart }) {
       window.addEventListener("online", handleOfflineStatus);
       window.addEventListener("offline", handleOfflineStatus);
 
-      setTimeout(function () {
-        setIsLoading(false);
-      }, 1500);
+      // setTimeout(function () {
+      //   setIsLoading(false);
+      // }, 1500);
 
 
       return function () {

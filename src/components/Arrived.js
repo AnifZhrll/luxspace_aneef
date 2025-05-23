@@ -1,4 +1,12 @@
+import React from "react";
+
 import ArrivedItem from "./ArrivedItem";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/free-mode";
 
 function Arrived({ items }) {
   return (
@@ -11,21 +19,30 @@ function Arrived({ items }) {
           </h3>
         </div>
       </div>
-      <div className="carousel overflow-x-hidden px-4" id="carousel">
-        <div className="container mx-auto" />
-        {/* <div class="overflow-hidden z-10"> */}
+      <div className="overflow-x-hidden px-4">
+        <div className="container mx-auto"></div>
         <div className="flex -mx-4 flex-row relative">
-          {/* START: JUST ARRIVED ROW 1 */}
-          {items &&
-            items.map(function (item) {
-              return <ArrivedItem item={item} key={item.id} />;
-            })}
-          {/* END: JUST ARRIVED ROW 1 */}
+        <Swiper
+        spaceBetween={287}
+        slidesPerView={1}
+        loop={true}
+          >
+            {items &&
+              items.map((item, index) => (
+                <SwiperSlide key={item.id} style={{ width: "278px" }}>
+                <div className="flex">
+                  <ArrivedItem item={item} />
+                  <ArrivedItem item={items[(index + 1) % items.length]} className="ml-6"/>
+                </div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
         </div>
-        {/* </div> */}
       </div>
     </section>
   );
 }
 
 export default Arrived;
+
+

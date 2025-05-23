@@ -134,3 +134,5 @@ if (document.getElementById("carousel")) {
   window.addEventListener("load", carousel_calc_offset);
   window.addEventListener("resize", carousel_calc_offset);
 }
+
+
